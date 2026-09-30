@@ -48,8 +48,24 @@ function mostrarContactos() {
                     ${contacto.telefono}
                 </span>
             </div>
+
+            <button class="btn-eliminar" data-id="${contacto.id}">
+                Eliminar
+            </button>
         `;
 
         listaContactos.appendChild(elemento);
+
+        const btnEliminar =
+            elemento.querySelector(".btn-eliminar");
+
+        btnEliminar.addEventListener("click", function () {
+
+            contactos = contactos.filter(function (item) {
+                return item.id !== contacto.id;
+            });
+
+            mostrarContactos();
+        });
     });
 }
