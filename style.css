@@ -103,3 +103,43 @@ button:hover {
     font-weight: bold;
     color: #495057;
 }
+/* tercer paso */
+.contacto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid #dce2df;
+    border-radius: 9px;
+
+    background-color: #fafcfb;
+}
+
+.info-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nombre-contacto {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.telefono-contacto {
+    color: #6b7571;
+}
+
+.btn-eliminar {
+    background-color: #b84a4a;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.btn-eliminar:hover {
+    background-color: #963c3c;
+}
