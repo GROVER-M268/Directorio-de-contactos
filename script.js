@@ -69,3 +69,17 @@ function mostrarContactos() {
         });
     });
 }
+const contador = document.getElementById("contador");
+function actualizarContador() {
+    contador.textContent = contactos.length;
+}
+contactos.push(contacto);
+
+mostrarContactos();
+actualizarContador();
+contactos = contactos.filter(function (item) {
+    return item.id !== contacto.id;
+});
+
+mostrarContactos();
+actualizarContador();
