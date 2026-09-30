@@ -28,11 +28,24 @@ btnAgregar.addEventListener("click", function () {
     telefonoInput.value = "";
 });
 
-function mostrarContactos() {
+function mostrarContactos(lista = contactos) {
 
     listaContactos.innerHTML = "";
 
-    contactos.forEach(function (contacto) {
+    if (lista.length === 0) {
+
+        const mensaje = document.createElement("p");
+
+        mensaje.classList.add("mensaje-vacio");
+
+        mensaje.textContent = "No se encontraron contactos.";
+
+        listaContactos.appendChild(mensaje);
+
+        return;
+    }
+
+    lista.forEach(function (contacto) {
 
         const elemento = document.createElement("div");
 
@@ -66,6 +79,7 @@ function mostrarContactos() {
             });
 
             mostrarContactos();
+            actualizarContador();
         });
     });
 }
@@ -83,3 +97,28 @@ contactos = contactos.filter(function (item) {
 
 mostrarContactos();
 actualizarContador();
+
+const buscarInput = document.getElementById("buscar");
+buscarInput.addEventListener("input", function () {
+
+    const texto = buscarInput.value
+        .toLowerCase()
+        .trim();
+
+    const contactosFiltrados = contactos.filter(function (contacto) {
+
+        return contacto.nombre
+            .toLowerCase()
+            .includes(texto);
+
+    });
+
+    mostrarContactos(contactosFiltrados);
+});
+
+
+
+
+
+
+
